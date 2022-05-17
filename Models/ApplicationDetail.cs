@@ -40,6 +40,7 @@ namespace EPassport.Models
         public string? EmploymentType { get; set; }
         [Required]
         public string? EducationalQualification { get; set; }
+        public string? PassportStatus { get; set; }
         public string? LoginId { get; set; }
 
         public virtual RegistrationDetail? Login { get; set; }

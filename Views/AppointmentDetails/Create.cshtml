@@ -1,12 +1,10 @@
 ﻿@model EPassport.Models.AppointmentDetail
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "ScheduleAppointment";
 }
 
-<h1>Create</h1>
-
-<h4>AppointmentDetail</h4>
+<h4>Add Schedule of new Appointment: </h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,16 +15,19 @@
                 <input asp-for="MonthName" class="form-control" />
                 <span asp-validation-for="MonthName" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="AvailableDays" class="control-label"></label>
                 <input asp-for="AvailableDays" class="form-control" />
                 <span asp-validation-for="AvailableDays" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="TimeSlots" class="control-label"></label>
                 <input asp-for="TimeSlots" class="form-control" />
                 <span asp-validation-for="TimeSlots" class="text-danger"></span>
             </div>
+            <br />
 @*            <div class="form-group">
                 <label asp-for="ApplicantId" class="control-label"></label>
                 <select asp-for="ApplicantId" class ="form-control" asp-items="ViewBag.ApplicantId"></select>

@@ -1,13 +1,12 @@
 ﻿@model EPassport.Models.PassportOffice
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Add Passport Office";
 }
 
-<h1>Create</h1>
-
-<h4>PassportOffice</h4>
+<h4>Add a Passport Office: </h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -17,21 +16,25 @@
                 <input asp-for="OfficeName" class="form-control" />
                 <span asp-validation-for="OfficeName" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Jurisdiction" class="control-label"></label>
                 <input asp-for="Jurisdiction" class="form-control" />
                 <span asp-validation-for="Jurisdiction" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
+            <br />
             @*<div class="form-group">
                 <label asp-for="ApplicantId" class="control-label"></label>
                 <select asp-for="ApplicantId" class ="form-control" asp-items="ViewBag.ApplicantId"></select>

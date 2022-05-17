@@ -1,14 +1,13 @@
 ﻿@model EPassport.Models.AppointmentDetail
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Appointment Schedule Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>AppointmentDetail</h4>
+    <h4>Appointment Schedule Details: </h4>
     <hr />
+    <br />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.MonthName)
@@ -37,6 +36,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.MonthId">Edit</a> |
+@*    <a asp-action="Edit" asp-route-id="@Model?.MonthId">Edit</a> |*@
     <a asp-action="Index">Back to List</a>
 </div>

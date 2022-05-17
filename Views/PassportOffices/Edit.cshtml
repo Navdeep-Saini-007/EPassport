@@ -1,12 +1,10 @@
 ﻿@model EPassport.Models.PassportOffice
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Passport Office Details";
 }
 
-<h1>Edit</h1>
-
-<h4>PassportOffice</h4>
+<h4>Edit Passport Office Details: </h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,21 +16,25 @@
                 <input asp-for="OfficeName" class="form-control" />
                 <span asp-validation-for="OfficeName" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Jurisdiction" class="control-label"></label>
                 <input asp-for="Jurisdiction" class="form-control" />
                 <span asp-validation-for="Jurisdiction" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
+            <br />
 @*            <div class="form-group">
                 <label asp-for="ApplicantId" class="control-label"></label>
                 <select asp-for="ApplicantId" class="form-control" asp-items="ViewBag.ApplicantId"></select>
