@@ -26,6 +26,12 @@ namespace EPassport.Controllers
             return View(await ePassportContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Personal()
+        {
+            var ePassportContext = _context.ApplicationDetail.Include(a => a.Login);
+            return View(await ePassportContext.ToListAsync());
+        }
+
         public async Task<IActionResult> Update()
         {
             //var ePassportContext = _context.ApplicationDetail.Include(a => a.Login);

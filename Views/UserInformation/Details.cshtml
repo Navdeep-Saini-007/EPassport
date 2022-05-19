@@ -1,13 +1,19 @@
 ﻿@model EPassport.Models.ApplicationDetail
 
 @{
-    ViewData["Title"] = "User Details";
+    ViewData["Title"] = "User's Personal Details";
 }
 
 <div>
-    <h4>User Details are: </h4>
+    <h4>User's Personal Details are: </h4>
     <hr />
     <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicantId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicantId)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
@@ -74,12 +80,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.EducationalQualification)
         </dd>
-         <dt class = "col-sm-2">
+@*         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.PassportStatus)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PassportStatus)
-        </dd>
+        </dd>*@
 @*        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Login)
         </dt>
@@ -90,5 +96,5 @@
 </div>
 <div>
 @*    <a asp-action="Edit" asp-route-id="@Model?.ApplicantId">Edit</a> |*@
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="index">Back to List</a>
 </div>

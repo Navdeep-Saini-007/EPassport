@@ -1,0 +1,40 @@
+﻿@model EPassport.Models.ReferenceDetail
+
+@{
+    ViewData["Title"] = "User's Reference Details";
+}
+
+<div>
+    <h4>User's Reference Details are: </h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicantId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Applicant.ApplicantId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReferenceName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReferenceName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TelephoneNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TelephoneNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+@*    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |*@
+    <a asp-controller="UserInformation" asp-action="Index">Back to List</a>
+</div>

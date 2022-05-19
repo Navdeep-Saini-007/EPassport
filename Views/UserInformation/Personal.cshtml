@@ -16,24 +16,21 @@
                 @Html.DisplayNameFor(model => model.ApplicantId)
             </th>
             <th>
-                Personal Details
+                @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-                Address Details
+                @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                Family Details
+                @Html.DisplayNameFor(model => model.Dob)
             </th>
             <th>
-                Reference Details
+                @Html.DisplayNameFor(model => model.PlaceOfBirth)
             </th>
             <th>
-                Update Passport Status
+                @Html.DisplayNameFor(model => model.Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PassportStatus)
-            </th>
-            @*<th>
                 @Html.DisplayNameFor(model => model.State)
             </th>
             <th>
@@ -51,7 +48,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.EducationalQualification)
             </th>
-             <th>
+@*             <th>
                 @Html.DisplayNameFor(model => model.PassportStatus)
             </th>*@
 @*            <th>
@@ -67,24 +64,21 @@
                 @Html.DisplayFor(modelItem => item.ApplicantId)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.ApplicantId">Click Here</a>
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                <a asp-controller="UserAddressDetails" asp-action="Details" asp-route-id="@item.ApplicantId">Click Here</a>
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                <a asp-controller="UserFamilyDetails" asp-action="Details" asp-route-id="@item.ApplicantId">Click Here</a>
+                @Html.DisplayFor(modelItem => item.Dob)
             </td>
             <td>
-                <a asp-controller="UserReferenceDetails" asp-action="Details" asp-route-id="@item.ApplicantId">Click Here</a>
+                @Html.DisplayFor(modelItem => item.PlaceOfBirth)
             </td>
             <td>
-                <a asp-action="Update">Click Here</a>
+                @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PassportStatus)
-            </td>
-           @* <td>
                 @Html.DisplayFor(modelItem => item.State)
             </td>
             <td>
@@ -102,18 +96,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EducationalQualification)
             </td>
-            <td>
+@*            <td>
                 @Html.DisplayFor(modelItem => item.PassportStatus)
             </td>*@
 @*            <td>
                 @Html.DisplayFor(modelItem => item.Login.LoginId)
             </td>*@
-@*            <td>
-                <a asp-action="Edit" asp-route-id="@item.ApplicantId">Edit</a> |
-                <a asp-controller="UserReferenceDetails" asp-action="index" asp-route-id="@item.ApplicantId">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.ApplicantId">Delete</a>
-            </td>*@
+            <td>
+ @*               <a asp-action="Edit" asp-route-id="@item.ApplicantId">Edit</a> |*@
+                  <a asp-action="Details" asp-route-id="@item.ApplicantId">Details</a>
+@*                <a asp-action="Delete" asp-route-id="@item.ApplicantId">Delete</a>*@
+            </td>
         </tr>
-    }
+}
     </tbody>
 </table>

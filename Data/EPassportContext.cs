@@ -19,5 +19,11 @@ namespace EPassport.Data
         public DbSet<EPassport.Models.AppointmentDetail> AppointmentDetail { get; set; }
 
         public DbSet<EPassport.Models.ApplicationDetail> ApplicationDetail { get; set; }
+
+        public DbSet<EPassport.Models.AddressDetail> AddressDetail { get; set; }
+
+        public DbSet<EPassport.Models.FamilyDetail> FamilyDetail { get; set; }
+
+        public DbSet<EPassport.Models.ReferenceDetail> ReferenceDetail { get; set; }
     }
 }
