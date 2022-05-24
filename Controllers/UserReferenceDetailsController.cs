@@ -36,7 +36,7 @@ namespace EPassport.Controllers
 
             var referenceDetail = await _context.ReferenceDetail
                 .Include(r => r.Applicant)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ApplicantId == id);
             if (referenceDetail == null)
             {
                 return NotFound();

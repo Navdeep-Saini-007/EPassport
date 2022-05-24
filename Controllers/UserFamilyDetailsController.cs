@@ -36,7 +36,7 @@ namespace EPassport.Controllers
 
             var familyDetail = await _context.FamilyDetail
                 .Include(f => f.Applicant)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ApplicantId == id);
             if (familyDetail == null)
             {
                 return NotFound();

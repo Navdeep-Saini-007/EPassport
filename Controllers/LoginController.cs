@@ -10,90 +10,90 @@ using EPassport.Models;
 
 namespace EPassport.Controllers
 {
-    public class UserAddressDetailsController : Controller
+    public class LoginController : Controller
     {
         private readonly EPassportContext _context;
 
-        public UserAddressDetailsController(EPassportContext context)
+        public LoginController(EPassportContext context)
         {
             _context = context;
         }
 
-        // GET: UserAddressDetails
+        // GET: Login
         public async Task<IActionResult> Index()
         {
-            var ePassportContext = _context.AddressDetail.Include(a => a.Applicant);
+            var ePassportContext = _context.LoginCredential.Include(l => l.Login);
             return View(await ePassportContext.ToListAsync());
         }
 
-        // GET: UserAddressDetails/Details/5
+        // GET: Login/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.AddressDetail == null)
+            if (id == null || _context.LoginCredential == null)
             {
                 return NotFound();
             }
 
-            var addressDetail = await _context.AddressDetail
-                .Include(a => a.Applicant)
-                .FirstOrDefaultAsync(m => m.ApplicantId == id);
-            if (addressDetail == null)
+            var loginCredential = await _context.LoginCredential
+                .Include(l => l.Login)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (loginCredential == null)
             {
                 return NotFound();
             }
 
-            return View(addressDetail);
+            return View(loginCredential);
         }
 
-        // GET: UserAddressDetails/Create
+        // GET: Login/Create
         public IActionResult Create()
         {
-            ViewData["ApplicantId"] = new SelectList(_context.ApplicationDetail, "ApplicantId", "District");
+            ViewData["LoginId"] = new SelectList(_context.Set<RegistrationDetail>(), "LoginId", "LoginId");
             return View();
         }
 
-        // POST: UserAddressDetails/Create
+        // POST: Login/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,HouseNo,StreetName,City,State,District,Pincode,TelephoneNumber,EmailId,ApplicantId")] AddressDetail addressDetail)
+        public async Task<IActionResult> Create([Bind("Id,UserType,LoginId,Password,RememberMe")] LoginCredential loginCredential)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(addressDetail);
+                _context.Add(loginCredential);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicantId"] = new SelectList(_context.ApplicationDetail, "ApplicantId", "District", addressDetail.ApplicantId);
-            return View(addressDetail);
+            ViewData["LoginId"] = new SelectList(_context.Set<RegistrationDetail>(), "LoginId", "LoginId", loginCredential.LoginId);
+            return View(loginCredential);
         }
 
-        // GET: UserAddressDetails/Edit/5
+        // GET: Login/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.AddressDetail == null)
+            if (id == null || _context.LoginCredential == null)
             {
                 return NotFound();
             }
 
-            var addressDetail = await _context.AddressDetail.FindAsync(id);
-            if (addressDetail == null)
+            var loginCredential = await _context.LoginCredential.FindAsync(id);
+            if (loginCredential == null)
             {
                 return NotFound();
             }
-            ViewData["ApplicantId"] = new SelectList(_context.ApplicationDetail, "ApplicantId", "District", addressDetail.ApplicantId);
-            return View(addressDetail);
+            ViewData["LoginId"] = new SelectList(_context.Set<RegistrationDetail>(), "LoginId", "LoginId", loginCredential.LoginId);
+            return View(loginCredential);
         }
 
-        // POST: UserAddressDetails/Edit/5
+        // POST: Login/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,HouseNo,StreetName,City,State,District,Pincode,TelephoneNumber,EmailId,ApplicantId")] AddressDetail addressDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserType,LoginId,Password,RememberMe")] LoginCredential loginCredential)
         {
-            if (id != addressDetail.Id)
+            if (id != loginCredential.Id)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ namespace EPassport.Controllers
             {
                 try
                 {
-                    _context.Update(addressDetail);
+                    _context.Update(loginCredential);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AddressDetailExists(addressDetail.Id))
+                    if (!LoginCredentialExists(loginCredential.Id))
                     {
                         return NotFound();
                     }
@@ -118,51 +118,51 @@ namespace EPassport.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicantId"] = new SelectList(_context.ApplicationDetail, "ApplicantId", "District", addressDetail.ApplicantId);
-            return View(addressDetail);
+            ViewData["LoginId"] = new SelectList(_context.Set<RegistrationDetail>(), "LoginId", "LoginId", loginCredential.LoginId);
+            return View(loginCredential);
         }
 
-        // GET: UserAddressDetails/Delete/5
+        // GET: Login/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.AddressDetail == null)
+            if (id == null || _context.LoginCredential == null)
             {
                 return NotFound();
             }
 
-            var addressDetail = await _context.AddressDetail
-                .Include(a => a.Applicant)
+            var loginCredential = await _context.LoginCredential
+                .Include(l => l.Login)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (addressDetail == null)
+            if (loginCredential == null)
             {
                 return NotFound();
             }
 
-            return View(addressDetail);
+            return View(loginCredential);
         }
 
-        // POST: UserAddressDetails/Delete/5
+        // POST: Login/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.AddressDetail == null)
+            if (_context.LoginCredential == null)
             {
-                return Problem("Entity set 'EPassportContext.AddressDetail'  is null.");
+                return Problem("Entity set 'EPassportContext.LoginCredential'  is null.");
             }
-            var addressDetail = await _context.AddressDetail.FindAsync(id);
-            if (addressDetail != null)
+            var loginCredential = await _context.LoginCredential.FindAsync(id);
+            if (loginCredential != null)
             {
-                _context.AddressDetail.Remove(addressDetail);
+                _context.LoginCredential.Remove(loginCredential);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AddressDetailExists(int id)
+        private bool LoginCredentialExists(int id)
         {
-          return _context.AddressDetail.Any(e => e.Id == id);
+          return _context.LoginCredential.Any(e => e.Id == id);
         }
     }
 }

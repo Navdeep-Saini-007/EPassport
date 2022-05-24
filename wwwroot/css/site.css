@@ -16,3 +16,31 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.div-wrapper{
+    display:flex;
+    flex-direction:column;
+}
+
+.inner-div{
+    display:flex;
+}
+
+.heading{
+    display:flex;
+    flex:0.2;
+}
+
+.content{
+    display:flex;
+    flex:0.8;
+}
+
+.pdf{
+    width:60rem;
+    height:30rem;
+}
+
+.lower{
+    margin-top:5rem;
+}

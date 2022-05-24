@@ -25,5 +25,9 @@ namespace EPassport.Data
         public DbSet<EPassport.Models.FamilyDetail> FamilyDetail { get; set; }
 
         public DbSet<EPassport.Models.ReferenceDetail> ReferenceDetail { get; set; }
+
+        public DbSet<EPassport.Models.SupportingDocumentDetail> SupportingDocumentDetail { get; set; }
+
+        public DbSet<EPassport.Models.LoginCredential> LoginCredential { get; set; }
     }
 }

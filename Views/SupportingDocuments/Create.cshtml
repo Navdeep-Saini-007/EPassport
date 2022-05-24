@@ -1,0 +1,40 @@
+﻿@model EPassport.ViewModel.DocumentCreateViewModel
+
+@{
+    ViewData["Title"] = "Upload Supporting Documents";
+}
+
+<h4>Upload Supporting Documents here: </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-controller="SupportingDocuments" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Document1" class="control-label">Pan Card</label>
+                <input asp-for="Document1" class="form-control custom-file-input" />
+                <span asp-validation-for="Document1" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Document2" class="control-label">Aadhar Card</label>
+                <input asp-for="Document2" class="form-control custom-file-input" />
+                <span asp-validation-for="Document2" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="ApplicantId" class="control-label"></label>
+                <input asp-for="ApplicantId" class="form-control"/>
+                <span asp-validation-for="ApplicantId" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Upload" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

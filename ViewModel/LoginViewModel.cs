@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace EPassport.Models
+namespace EPassport.ViewModel
 {
-    public partial class LoginCredential
+    public class LoginViewModel
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         public string? UserType { get; set; }
         [Required]
@@ -18,7 +14,5 @@ namespace EPassport.Models
         public string? Password { get; set; }
         [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
-
-        public virtual RegistrationDetail? Login { get; set; }
     }
 }

@@ -1,0 +1,49 @@
+﻿@model EPassport.Models.SupportingDocumentDetail
+
+@{
+    ViewData["Title"] = "User's Uploaded Documents";
+}
+
+<div>
+    <h4>User's Supporting Documents</h4>
+    <hr />
+    @*<dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Document1)
+        </dt>
+        <dd>
+            <embed src="~/images/@Model.Document1" type="application/pdf" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Document2)
+        </dt>
+        <dd>
+            <embed src="~/images/@Model.Document2" type="application/pdf" />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Applicant)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Applicant.District)
+        </dd>
+    </dl>*@
+    <div class="div-wrapper">
+        <div class="inner-div">
+            <div class="heading">
+                <h5 class="para">Pan Card</h5>
+            </div>
+            <div class="content">
+                <embed class="pdf" src="~/images/@Model.Document1" type="application/pdf" />
+            </div>
+        </div>
+        <hr />
+        <div class="inner-div lower">
+            <div class="heading">
+                <h5 class="para">Aadhar Card</h5>
+            </div>
+            <div class="content">
+                <embed class="pdf" src="~/images/@Model.Document2" type="application/pdf" />
+            </div>
+        </div> 
+    </div>
+</div>

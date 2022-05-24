@@ -12,8 +12,12 @@ namespace EPassport.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult User()
         {
             return View();
         }

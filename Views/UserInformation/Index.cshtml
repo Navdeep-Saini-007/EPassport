@@ -28,6 +28,9 @@
                 Reference Details
             </th>
             <th>
+                Documents Details
+            </th>
+            <th>
                 Update Passport Status
             </th>
             <th>
@@ -77,6 +80,9 @@
             </td>
             <td>
                 <a asp-controller="UserReferenceDetails" asp-action="Details" asp-route-id="@item.ApplicantId">Click Here</a>
+            </td>
+            <td>
+                <a asp-controller="SupportingDocuments" asp-action="Details" asp-route-id="@item.ApplicantId">Click Here</a>
             </td>
             <td>
                 <a asp-action="Update">Click Here</a>

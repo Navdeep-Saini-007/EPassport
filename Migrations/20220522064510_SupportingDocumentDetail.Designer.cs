@@ -4,6 +4,7 @@ using EPassport.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EPassport.Migrations
 {
     [DbContext(typeof(EPassportContext))]
-    partial class EPassportContextModelSnapshot : ModelSnapshot
+    [Migration("20220522064510_SupportingDocumentDetail")]
+    partial class SupportingDocumentDetail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,36 +195,6 @@ namespace EPassport.Migrations
                     b.ToTable("FamilyDetail");
                 });
 
-            modelBuilder.Entity("EPassport.Models.LoginCredential", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("LoginId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("RememberMe")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LoginId");
-
-                    b.ToTable("LoginCredential");
-                });
-
             modelBuilder.Entity("EPassport.Models.PassportOffice", b =>
                 {
                     b.Property<int>("OfficeId")
@@ -385,17 +357,6 @@ namespace EPassport.Migrations
                         .HasForeignKey("ApplicantId");
 
                     b.Navigation("Applicant");
-                });
-
-            modelBuilder.Entity("EPassport.Models.LoginCredential", b =>
-                {
-                    b.HasOne("EPassport.Models.RegistrationDetail", "Login")
-                        .WithMany()
-                        .HasForeignKey("LoginId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Login");
                 });
 
             modelBuilder.Entity("EPassport.Models.PassportOffice", b =>

@@ -149,41 +149,41 @@ namespace EPassport.Controllers
         //}
 
         // GET: ApplicationDetails/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null || _context.ApplicationDetail == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.ApplicationDetail == null)
+            {
+                return NotFound();
+            }
 
-        //    var applicationDetail = await _context.ApplicationDetail
-        //        .Include(a => a.Login)
-        //        .FirstOrDefaultAsync(m => m.ApplicantId == id);
-        //    if (applicationDetail == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var applicationDetail = await _context.ApplicationDetail
+                .Include(a => a.Login)
+                .FirstOrDefaultAsync(m => m.ApplicantId == id);
+            if (applicationDetail == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(applicationDetail);
-        //}
+            return View(applicationDetail);
+        }
 
         // POST: ApplicationDetails/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    if (_context.ApplicationDetail == null)
-        //    {
-        //        return Problem("Entity set 'EPassportContext.ApplicationDetail'  is null.");
-        //    }
-        //    var applicationDetail = await _context.ApplicationDetail.FindAsync(id);
-        //    if (applicationDetail != null)
-        //    {
-        //        _context.ApplicationDetail.Remove(applicationDetail);
-        //    }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            if (_context.ApplicationDetail == null)
+            {
+                return Problem("Entity set 'EPassportContext.ApplicationDetail'  is null.");
+            }
+            var applicationDetail = await _context.ApplicationDetail.FindAsync(id);
+            if (applicationDetail != null)
+            {
+                _context.ApplicationDetail.Remove(applicationDetail);
+            }
 
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
